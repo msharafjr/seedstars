@@ -1,0 +1,12 @@
+extends layout	
+
+block content
+	.welcome__wrapper.wrapper.flex-center
+		.welcome__inner.inner.txt-center
+			h1 Welcome! 👋
+			
+			- const links = [ 'List', 'Add' ];
+			ul.links__list
+				each link in links
+					li.list__item
+						a( href = '/' + link.toLowerCase() ).btn.txt-center= link

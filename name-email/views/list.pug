@@ -1,0 +1,23 @@
+extends layout	
+
+block content
+	.list__wrapper.wrapper.flex-center
+		.list__inner.inner
+			h1.txt-center Persons List
+
+			ul.persons__list
+				each person in persons
+					li(id = person._id ).person__item
+						span.item__name Name:
+							strong= ' ' + person.name
+						span.item__email Email:
+							strong= ' ' + person.email
+						span.item__date
+							strong= person.createdDate.toLocaleTimeString() + ' - ' + person.createdDate.toLocaleDateString()
+				else
+					li(style={ 'text-align': 'center' }) The persons list is now empty
+				
+		
+
+block scripts
+	script( src = './js/list.js' )

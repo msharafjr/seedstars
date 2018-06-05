@@ -1,0 +1,24 @@
+extends layout	
+
+block content
+	.form__wrapper.wrapper.flex-center
+		.form__inner.inner
+			h1.txt-center Add New Person
+			
+			form.add__form#addForm
+				.error__message.txt-center
+					
+				.form-control
+					label( for = 'name' ) *Name
+					input( type = 'text', name = 'name', placeholder = 'Name' autofocus ).form_input#name
+					
+				.form-control
+					label( for = 'email' ) *Email
+					input( type = 'email', name = 'email', placeholder = 'Email' ).form_input#email
+					
+				.form-control
+					button( type = 'submit' ).btn#submit Add Person
+		
+
+block scripts
+	script( src = './js/add.js' )
