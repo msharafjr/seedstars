@@ -1,11 +1,15 @@
-extends layout	
+extends layout
 
+block head
+	meta( name = 'csrf-token', content = csrfToken )
+		
 block content
 	.form__wrapper.wrapper.flex-center
 		.form__inner.inner
 			h1.txt-center Add New Person
 			
 			form.add__form#addForm
+				input( type = 'hidden' name = '_csrf' value = csrfToken )
 				.error__message.txt-center
 					
 				.form-control

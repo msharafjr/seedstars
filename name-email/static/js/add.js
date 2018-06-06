@@ -101,16 +101,21 @@
 
 	function addNewPerson() {
 
+		// Read the CSRF token from the <meta> tag
+		const token = document.querySelector( 'meta[name="csrf-token"] ').getAttribute( 'content' );
+
 		const data = {
 			name: form.name.value,
 			email: form.email.value
 		};
 
 		const options = {
-			method: 'POST',
+			credentials: 'same-origin', // <-- includes cookies in the request
 			headers: {
+				'CSRF-Token': token, // <-- is the csrf token as a header
 				'Content-Type': 'application/json'
 			},
+			method: 'POST',
 			body: JSON.stringify( data )
 		};
 
